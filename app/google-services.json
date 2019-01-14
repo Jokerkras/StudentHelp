@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "869458316385",
+    "firebase_url": "https://studenthelp-2ff0a.firebaseio.com",
+    "project_id": "studenthelp-2ff0a",
+    "storage_bucket": "studenthelp-2ff0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869458316385:android:231ff13672c08c27",
+        "android_client_info": {
+          "package_name": "com.example.krasm.studenthelp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869458316385-29bjaiinfvg2hfuett8bg1p6ae18ueit.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYy8-pAglNAU3JCsqxxthtBmyUSEJEpuQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
