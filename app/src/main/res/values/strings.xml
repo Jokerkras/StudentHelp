@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">StudentHelp</string>
+    <string name="auth_login_template">Login</string>
+    <string name = "auth_password_template">Password</string>
 </resources>
