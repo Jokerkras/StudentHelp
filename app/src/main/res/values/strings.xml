@@ -2,4 +2,7 @@
     <string name="app_name">StudentHelp</string>
     <string name="auth_login_template">Login</string>
     <string name = "auth_password_template">Password</string>
+    <string name="item_home">Home</string>
+    <string name="item_timetable">Timetable</string>
+    <string name="item_teachers">Teachers</string>
 </resources>
