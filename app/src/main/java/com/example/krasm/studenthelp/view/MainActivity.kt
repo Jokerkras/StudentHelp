@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
-import android.support.v7.app.ActionBar
 import com.example.krasm.studenthelp.R
 import com.example.krasm.studenthelp.presenter.MainActivityPresenter
 import com.firebase.ui.auth.AuthUI
@@ -16,19 +15,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var presenter: MainActivityPresenter
     private lateinit var mFirebaseAuth: FirebaseAuth
     private lateinit var mAuthListener: FirebaseAuth.AuthStateListener
-    private lateinit var toolbar: ActionBar
 
     private val RC_SIGN_IN: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        toolbar = supportActionBar!!
+        setSupportActionBar(toolbarCust)
 
         mFirebaseAuth = FirebaseAuth.getInstance()
         presenter = MainActivityPresenter(this)
         mAuthListener = FirebaseAuth.AuthStateListener {
-            var user = it.currentUser
+            val user = it.currentUser
             if(user != null) {
 
             } else {
@@ -43,25 +41,44 @@ class MainActivity : AppCompatActivity() {
         }
 
         bottom_navigation_bar.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        openFragment(FragmentHome())
+        toolbarCust.title = "Home"
+        toolbarCust.inflateMenu(R.menu.toolbar_home_items)
+        openFragment(FragmentHome.newInstance())
+
+        toolbarCust.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.item_logout -> {
+                    AuthUI.getInstance().signOut(this)
+                    return@setOnMenuItemClickListener true
+                }
+                else -> {
+                    return@setOnMenuItemClickListener true
+                }
+            }
+        }
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.action_home -> {
-                toolbar.title = "Home"
+                toolbarCust.menu.clear()
+                toolbarCust.title = "Home"
                 val fragmentHome = FragmentHome.newInstance()
+                toolbarCust.inflateMenu(R.menu.toolbar_home_items)
                 openFragment(fragmentHome)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.action_timetable -> {
-                toolbar.title = "Timetable"
+                toolbarCust.menu.clear()
+                toolbarCust.title = "Timetable"
                 val fragmentTimetable = FragmentTimetable.newInstance()
                 openFragment(fragmentTimetable)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.action_teachers -> {
-                toolbar.title = "Teachers"
+                toolbarCust.menu.clear()
+                toolbarCust.title = "Teachers"
+                toolbarCust.inflateMenu(R.menu.toolbar_contacts_items)
                 val fragmentTeachers = FragmentTeachers.newInstance()
                 openFragment(fragmentTeachers)
                 return@OnNavigationItemSelectedListener true

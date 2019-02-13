@@ -5,4 +5,9 @@
     <string name="item_home">Home</string>
     <string name="item_timetable">Timetable</string>
     <string name="item_teachers">Teachers</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Phone</string>
+    <string name="hint_subject">Subject</string>
+    <string name="button_add">Add</string>
 </resources>

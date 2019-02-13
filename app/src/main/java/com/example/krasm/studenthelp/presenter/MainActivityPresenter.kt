@@ -5,7 +5,7 @@ import com.example.krasm.studenthelp.database.Database
 import com.example.krasm.studenthelp.view.MainActivity
 
 class MainActivityPresenter(activity: MainActivity) {
-    private val mainActivityPresenter =  activity
+    private val mainActivity =  activity
     private val database = Database()
 
     fun addFStudent(){
